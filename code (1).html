@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JK Farm - Sustainable Small-Scale Farming in Rwanda</title>
+  <style>
+    /* Reset and base */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f9f3;
+      color: #2b3e24;
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+    a {
+      color: #286440;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 0;
+    }
+    /* Hero Section */
+    header {
+      background: linear-gradient(rgba(40, 100, 64, 0.8), rgba(40, 100, 64, 0.8)), url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: #e6f2df;
+      text-align: center;
+      padding: 0 1rem;
+    }
+    header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 1.5px 1.5px 4px rgba(0,0,0,0.7);
+    }
+    header p {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    }
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn {
+      background-color: #4a7c3c;
+      color: #e6f2df;
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      box-shadow: 0 4px 10px rgba(74,124,60,0.4);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      font-size: 1.1rem;
+    }
+    .btn:hover, .btn:focus {
+      background-color: #2a4b1d;
+      outline: none;
+      box-shadow: 0 6px 15px rgba(42,75,29,0.7);
+    }
+    /* Section titles */
+    section h2 {
+      color: #386b21;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-align: center;
+      padding-top: 3rem;
+      padding-bottom: 1rem;
+      border-bottom: 3px solid #a5c97d;
+      max-width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    /* About Us */
+    #about {
+      background-color: #e7f0db;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(40,100,64,0.15);
+      padding: 3rem 1rem;
+      margin-top: 3rem;
+      text-align: center;
+    }
+    #about p {
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      color: #40592f;
+    }
+    /* Projects */
+    #projects {
+      margin-top: 3rem;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 2rem;
+      padding: 1rem 0 3rem 0;
+    }
+    .project-card {
+      background-color: #fefcf7;
+      border-radius: 15px;
+      box-shadow: 0 3px 8px rgba(73,111,55,0.2);
+      padding: 1.5rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 20px rgba(73,111,55,0.35);
+    }
+    .project-card h3 {
+      margin-bottom: 0.8rem;
+      color: #3b5820;
+      font-size: 1.4rem;
+    }
+    .project-card p {
+      flex-grow: 1;
+      color: #536d34;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    .project-card .card-btn {
+      align-self: start;
+      background-color: #78a247;
+      padding: 0.6rem 1rem;
+      border-radius: 20px;
+      color: #fefcf7;
+      font-weight: 600;
+      font-size: 1rem;
+      box-shadow: 0 3px 8px rgba(120,162,71,0.45);
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-align: center;
+    }
+    .project-card .card-btn:hover {
+      background-color: #557730;
+    }
+    /* Blog */
+    #blog {
+      margin-top: 3rem;
+      padding-bottom: 3rem;
+    }
+    .blog-list {
+      max-width: 700px;
+      margin: 2rem auto 3rem auto;
+    }
+    .blog-post {
+      background-color: #e9f0d8;
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 3px 7px rgba(40,100,64,0.15);
+      transition: background-color 0.2s ease;
+    }
+    .blog-post:hover {
+      background-color: #d3e1af;
+    }
+    .blog-post h4 {
+      color: #2f4712;
+      margin-bottom: 0.3rem;
+      font-size: 1.2rem;
+    }
+    .blog-post p {
+      color: #4d6132;
+      font-size: 0.95rem;
+    }
+    /* Contact */
+    #contact {
+      background-color: #e7f0db;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(40,100,64,0.15);
+      padding: 2rem 1rem 3rem;
+      margin-bottom: 3rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    #contact label {
+      font-weight: 600;
+      color: #3d5f11;
+      font-size: 1rem;
+    }
+    #contact input, #contact textarea {
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: 1px solid #a7bc82;
+      font-size: 1rem;
+      font-family: inherit;
+      resize: vertical;
+      transition: border-color 0.3s ease;
+    }
+    #contact input:focus, #contact textarea:focus {
+      border-color: #4a7c3c;
+      outline: none;
+      box-shadow: 0 0 6px #709e44cc;
+    }
+    #contact button {
+      background-color: #4a7c3c;
+      color: #e6f2df;
+      border: none;
+      padding: 0.85rem 2rem;
+      border-radius: 30px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(74,124,60,0.4);
+      transition: background-color 0.3s ease;
+      font-size: 1.1rem;
+    }
+    #contact button:hover, #contact button:focus {
+      background-color: #2a4b1d;
+      outline: none;
+      box-shadow: 0 6px 15px rgba(42,75,29,0.7);
+    }
+    /* Footer */
+    footer {
+      text-align: center;
+      color: #71994d;
+      padding: 1.5rem 0;
+      font-size: 0.9rem;
+      border-top: 1px solid #a5c97d;
+      background-color: #e7f0db;
+    }
+    /* Responsive adjustments */
+    @media (max-width: 568px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+      header p {
+        font-size: 1.2rem;
+      }
+      .btn {
+        font-size: 1rem;
+        padding: 0.7rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>JK Farm</h1>
+    <p>Empowering Rwanda through Sustainable Small-Scale Farming & Innovation</p>
+    <div class="btn-group">
+      <button class="btn" onclick="scrollToSection('projects')">Explore Projects</button>
+      <button class="btn" onclick="scrollToSection('contact')">Join Training Programs</button>
+    </div>
+  </header>
+  <main class="container">
+    <section id="about">
+      <h2>About Us</h2>
+      <p>
+        JK Farm is an agricultural initiative based in Rwanda dedicated to promoting small-scale farming, kitchen gardens, organic fertilizer production, mushroom-based products, and empowering farmers through comprehensive training programs. We are committed to fostering sustainability, innovation, and food security in local communities.
+      </p>
+    </section>
+
+    <section id="projects">
+      <h2>Our Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Small-Scale Farming</h3>
+          <p>Innovative approaches that help local farmers increase productivity and sustainability on small plots of land.</p>
+          <button class="card-btn" onclick="alert('Learn more about Small-Scale Farming at JK Farm.')">Learn More</button>
+        </div>
+        <div class="project-card">
+          <h3>Kitchen Gardens</h3>
+          <p>Promoting the creation of home gardens to enhance household nutrition and food independence.</p>
+          <button class="card-btn" onclick="alert('Join our Kitchen Gardens initiative for healthier homes.')">Join Now</button>
+        </div>
+        <div class="project-card">
+          <h3>Organic Fertilizer</h3>
+          <p>Development and use of eco-friendly organic fertilizer that enriches soil health naturally.</p>
+          <button class="card-btn" onclick="alert('Discover how we produce and use organic fertilizer.')">Discover More</button>
+        </div>
+        <div class="project-card">
+          <h3>Mushroom Products</h3>
+          <p>Harnessing mushroom farming techniques to provide nutritious food and create economic opportunities.</p>
+          <button class="card-btn" onclick="alert('Explore mushroom-based products from JK Farm.')">Explore Products</button>
+        </div>
+        <div class="project-card">
+          <h3>Farmer Training</h3>
+          <p>Comprehensive training programs that equip farmers with skills for sustainable agriculture.</p>
+          <button class="card-btn" onclick="scrollToSection('contact')">Join Training</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="blog">
+      <h2>Latest from Our Blog</h2>
+      <div class="blog-list">
+        <article class="blog-post">
+          <h4>5 Tips for Starting Your Kitchen Garden Today</h4>
+          <p>Discover easy and effective ways to start your own kitchen garden and improve your family's nutrition.</p>
+        </article>
+        <article class="blog-post">
+          <h4>The Benefits of Using Organic Fertilizers in Farming</h4>
+          <p>Learn why organic fertilizers are better for the soil, crops, and the environment than chemical alternatives.</p>
+        </article>
+        <article class="blog-post">
+          <h4>Training Farmers for a Sustainable Future</h4>
+          <p>How our training programs empower communities and enhance agricultural innovation across Rwanda.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <form id="contactForm" onsubmit="submitForm(event)" novalidate>
+        <label for="name">Name*</label>
+        <input type="text" id="name" name="name" placeholder="Your full name" required minlength="2" />
+        
+        <label for="email">Email*</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required />
+        
+        <label for="message">Message*</label>
+        <textarea id="message" name="message" placeholder="Write your message here" rows="5" required minlength="10"></textarea>
+        
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+  <footer>
+    &copy; 2024 JK Farm. Promoting Sustainable Agriculture in Rwanda.
+  </footer>
+
+  <script>
+    function scrollToSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      if(section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    function submitForm(event) {
+      event.preventDefault();
+      const form = event.target;
+      if (!form.checkValidity()) {
+        alert('Please fill out all required fields correctly.');
+        form.reportValidity();
+        return;
+      }
+      // This is a mock submission - no backend
+      alert('Thank you for contacting JK Farm! We will get back to you shortly.');
+      form.reset();
+    }
+  </script>
+</body>
+</html>
+
